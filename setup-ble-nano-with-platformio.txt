@@ -1,0 +1,20 @@
+Create new project in platformio choosing Redbear BLE Nano as the board and Arduino as platform.
+
+Your platformio.ini should contain:
+  [env:redBearLabBLENano]
+  platform = nordicnrf51
+  framework = arduino
+  board = redBearLabBLENano
+  lib_deps = BLEPeripheral
+  build_flags = -DNRF51_S110
+
+Main source file should include:
+  #include <Arduino.h>
+  #include <SPI.h>
+  #include <BLEPeripheral.h>
+
+The MK20 board must be flashed with firmware before it can be used to program the BLE Nano. Follow instructions at the following URL:
+  https://github.com/redbear/nRF5x/tree/master/USB-IF
+
+In Windows, install the USB CDC driver.
+
